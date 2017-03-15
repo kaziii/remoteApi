@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+	head
+		title= title
+		link(rel="stylesheet" href="material/css/material.min.css" type="text/css")
+		style(type="text/css").
+			.login-center {
+				position  : absolute;
+				top       : 50%;
+				left      : 50%;
+				transform : translate(-50%,-50%);
+			}
+
+	body
+		form(method="post" action="/")
+			div(class="container")
+				div(class="login-center")
+					div(class="card center-block")
+						img(class="card-img" src="images/tmpdir--17_3_15_14_06_43.png" alt="card planewindowlight" )
+						div(class="card-block")
+							div(class="form-group")
+								label(class="form-control-label" for="inputEmail") user name
+								input(type="text" class="form-control" id="inputEmail" placeholder="User Name" name="username")
+							div(class="form-group")
+								label(class="form-control-label" for="inputEmail1") password 
+								input(type="password" class="form-control" id="inputEmail1" placeholder="password" name="password")
+							div(class="form-group")
+								button(type="submit" class="btn btn-primary") Sign in 
