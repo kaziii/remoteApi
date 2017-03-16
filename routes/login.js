@@ -13,10 +13,10 @@ router.get('/', function(req, res) {
 
 	if (isLogin) {
 
-		res.json({res_code: 0, res_msg: 'session is true'})
+		return res.sendfile(path.resolve('build/index.html'));
 	}
 
-	res.render(path.resolve(__dirname, '../views/login'))
+	return res.render(path.resolve(__dirname, '../views/login'))
 })
 
 router.post('/', function(req, res) {
@@ -33,10 +33,15 @@ router.post('/', function(req, res) {
 			req.session.regenerate(function(err) {
 
 				if (err) {
+
 					return res.json({res_code: 2, res_msg: 'login faild'})
 				}
+
 				req.session.user_name = req.body.username;
-				res.json({res_code: 0, res_msg: 'login success'})
+				
+				return res.sendfile(path.resolve('build/index.html'));
+
+				// res.json({res_code: 0, res_msg: 'login success'})
 			});
 
 		}

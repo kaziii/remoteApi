@@ -24,7 +24,7 @@ app.use(sessionParser({
 	name: cookieName,
 	secret: 'yoursecret',
 	cookie: {
-		maxAge: 10 * 1000
+		maxAge: 24 * 60 * 60 * 1000
 	},
 	store: new RedisStore({
 		host: '127.0.0.1',
@@ -34,6 +34,7 @@ app.use(sessionParser({
 
 app.use('/material', express.static(path.join(__dirname, 'node_modules/daemonite-material')));
 app.use('/images', express.static(path.join(__dirname,'public/images')));
+app.use('/assets', express.static(path.join(__dirname, 'build/assets')));
 
 app.use('/api/', require('./routes'));
 app.use('/',require('./routes/login'));

@@ -2,11 +2,18 @@ var router = require('express').Router();
 
 // router.use('/', require('./login'));
 
-router.get('/mian',function (req, res) {
-	res.send({
-		name: 'docker server',
-		timetip: new Date()
-	})
+router.get('/dashboards',function (req, res) {
+
+	var request = {
+
+		dashboards:{
+
+			username: req.session.user_name,
+			timestamp: Date.now()
+		}
+	}
+
+	return res.json(request);
 });
 
 router.use('/images', require('./images'));
