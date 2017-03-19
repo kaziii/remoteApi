@@ -17,5 +17,6 @@ router.get('/dashboards',function (req, res) {
 });
 
 router.use('/images', require('./images'));
+router.use('/container', require('./container'));
 
 module.exports = router;
